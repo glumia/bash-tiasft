@@ -27,12 +27,7 @@ function search_alias {
     cmd=($*)
     shortcut=""
     while [[ -z "$shortcut" && -n "${cmd[*]}" ]]; do
-        while read line; do
-            if [[ -n $(echo "$line" | cut -d'=' -f2 | grep "^[\'\"]${cmd[*]}") ]]; then
-                shortcut=$line
-                break
-            fi
-        done <<< $(alias)
+        shortcut=$(alias | grep "[^=]*[\"\']${cmd[*]}[\'\"]")
         unset cmd[-1]
     done
     if [[ -n "$shortcut" ]]; then
@@ -41,8 +36,6 @@ function search_alias {
         echo ""
     fi
 }
-
-# TODO: Implement the search algorithm in C, it's really too slow in bash. 
 
 # Add the function just declared to the preexec_functions.
 preexec_functions+=(search_alias)
