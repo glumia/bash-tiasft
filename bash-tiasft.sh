@@ -12,7 +12,10 @@
 
 # General Usage:
 #
-#  1. Source this file in your bash profile before you source Bash-Preexec
+#  1. Source this file in your bash profile before you source Bash-Preexec.
+#
+#  2. Use your terminal as usual, if you forget there's an alias you can use
+#     for a command a message will be printed before it is executed.
 #
 
 # Avoid duplicate inclusion
