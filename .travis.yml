@@ -1,0 +1,12 @@
+language: bash
+
+before_install:
+  # To install bats and test our shell/bash functions
+  - git clone -b "v0.4.0" "https://github.com/bats-core/bats-core.git"
+  - sudo ./bats-core/install.sh /usr/local
+  - rm -rf ./bats-core
+
+# command to run tests
+script:
+  - /usr/local/bin/bats test
+
