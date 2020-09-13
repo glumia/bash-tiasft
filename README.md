@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/glumia/bash-tiasft.svg?branch=master)](https://travis-ci.com/github/glumia/bash-tiasft)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/glumia/bash-tiasft)](https://github.com/glumia/bash-tiasft/releases)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
