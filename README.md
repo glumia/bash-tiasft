@@ -64,6 +64,22 @@ $ gcan
  create mode 100644 TODO.md
 ```
 
+## Tests
+You can run tests using [Bats](https://github.com/bats-core/bats-core).
+```bash
+bats test
+```
+Should output something like:
+```
+$ bats test/
+ ✓ should match a shortcut
+ ✓ should match the most powerful shortcut
+ ✓ should not import if it's already defined
+ ✓ should import if not defined
+
+4 tests, 0 failures
+```
+
 
 ## Acknowledgments
 Thanks to the people behind [Bash-Preexec](https://github.com/rcaloras/bash-preexec)
