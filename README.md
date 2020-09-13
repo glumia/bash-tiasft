@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.com/glumia/bash-tiasft.svg?branch=master)](https://travis-ci.com/github/glumia/bash-tiasft)
+[![GitHub version](https://badge.fury.io/gh/glumia%2Fbash-tiasft.svg)](https://badge.fury.io/gh/glumia%2Fbash-tiasft)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
 # Bash-Tiasft
 *Bash - There is a shortcut for that!*
 
