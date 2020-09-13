@@ -10,3 +10,6 @@ before_install:
 script:
   - /usr/local/bin/bats test
 
+notifications:
+  email: false
+
