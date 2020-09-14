@@ -7,7 +7,7 @@
 #
 # Author: Giuseppe Lumia (glumia@protonmail.com)
 #
-# v0.1.0
+# v0.1.1
 #
 
 # General Usage:
@@ -31,7 +31,7 @@ function search_alias {
     shortcut=""
     while [[ -z "$shortcut" && -n "${cmd[*]}" ]]; do
         shortcut=$(alias | grep "[^=]*[\"\']${cmd[*]}[\'\"]")
-        unset cmd[-1]
+        unset cmd[${#cmd[@]}-1]
     done
     if [[ -n "$shortcut" ]]; then
         echo "There is a shortcut for that!"
