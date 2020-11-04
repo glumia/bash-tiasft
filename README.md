@@ -6,8 +6,8 @@
 # Bash-Tiasft
 *Bash - There is a shortcut for that!*
 
-Suggests shortcuts for commands for which an alias is defined.  
-Useful if you've defined new aliases for commands you use often and need
+Suggests shortcuts for aliased commands.  
+Useful if you define some new aliases for commands you use often and need
 to build muscle memory for them.
 
 ## Install

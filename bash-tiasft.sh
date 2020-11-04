@@ -1,4 +1,4 @@
-# bash-tiasft.sh -- Suggest shortcuts for bash commands that have an alias.
+# bash-tiasft.sh -- Suggest shortcuts for aliased commands.
 # https://github.com/glumia/bash-tiasft
 #
 #
