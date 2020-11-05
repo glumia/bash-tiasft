@@ -24,13 +24,17 @@ if [[ "${__btiasft_imported:-}" == "defined" ]]; then
 fi
 __btiasft_imported="defined"
 
+# Cache user's aliases at login, no need to execute the `alias` command each
+# time.
+__aliases=$(alias)
+
 # Take the command string and progressively search if there is an alias defined
 # for it, removing the last word at each iteration.
 function search_alias {
     cmd=($*)
     shortcut=""
     while [[ -z "$shortcut" && -n "${cmd[*]}" ]]; do
-        shortcut=$(alias | grep "[^=]*[\"\']${cmd[*]}[\'\"]")
+        shortcut=$(grep "[^=]*[\"\']${cmd[*]}[\'\"]" <<< "$__aliases")
         unset cmd[${#cmd[@]}-1]
     done
     if [[ -n "$shortcut" ]]; then
