@@ -38,9 +38,7 @@ function search_alias {
         unset cmd[${#cmd[@]}-1]
     done
     if [[ -n "$shortcut" ]]; then
-        echo "There is a shortcut for that!"
-        echo "    $shortcut"
-        echo ""
+        printf "There is a shortcut for that!\n    %s\n" "$shortcut"
     fi
 }
 
