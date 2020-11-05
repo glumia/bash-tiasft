@@ -7,7 +7,7 @@
 #
 # Author: Giuseppe Lumia (glumia@protonmail.com)
 #
-# v0.1.1
+# v0.1.2
 #
 
 # General Usage:
