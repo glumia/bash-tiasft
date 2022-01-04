@@ -5,7 +5,7 @@
 # Before each command is executed this function checks if there's an alias 
 # already defined for it and eventually suggests it. 
 #
-# Author: Giuseppe Lumia (glumia@protonmail.com)
+# Author: Giuseppe Lumia (gius@glumia.dev)
 #
 # v0.1.2
 #
