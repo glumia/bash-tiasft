@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 # bash-tiasft.sh -- Suggest shortcuts for aliased commands.
 # https://github.com/glumia/bash-tiasft
 #
@@ -7,7 +9,7 @@
 #
 # Author: Giuseppe Lumia (gius@glumia.dev)
 #
-# v0.1.2
+# v0.1.3
 #
 
 # General Usage:
@@ -31,14 +33,15 @@ __aliases=$(alias)
 # Take the command string and progressively search if there is an alias defined
 # for it, removing the last word at each iteration.
 function search_alias {
-    cmd=($*)
+    local cmd shortcut
+    IFS=" " read -ra cmd <<< "$1"
     shortcut=""
-    while [[ -z "$shortcut" && -n "${cmd[*]}" ]]; do
-        shortcut=$(grep "[^=]*[\"\']${cmd[*]}[\'\"]" <<< "$__aliases")
-        unset cmd[${#cmd[@]}-1]
+    while [[ -z "${shortcut}"  &&  "${#cmd[@]}" -gt 0 ]]; do
+        shortcut=$(grep "[^=]*[\"\']${cmd[*]}[\'\"]" <<< "${__aliases}")
+        unset "cmd[${#cmd[@]}-1]"
     done
-    if [[ -n "$shortcut" ]]; then
-        printf "There is a shortcut for that!\n    %s\n" "$shortcut"
+    if [[ -n "${shortcut}" ]]; then
+        printf "There is a shortcut for that!\n    %s\n" "${shortcut}"
     fi
 }
 
