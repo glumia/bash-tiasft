@@ -1,43 +1,33 @@
-[![Build Status](https://travis-ci.com/glumia/bash-tiasft.svg?branch=master)](https://travis-ci.com/github/glumia/bash-tiasft)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/glumia/bash-tiasft)](https://github.com/glumia/bash-tiasft/releases)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
-# Bash-Tiasft
-*Bash - There is a shortcut for that!*
+# bash-tiasft
 
-Suggests shortcuts for aliased commands.  
-Useful if you define some new aliases for commands you use often and need
-to build muscle memory for them.
+`bash-tiasft` (I know, what an unpronounceable name) loads your aliases and reminds
+you about them when you type a command that could have been abbreviated.
 
 ## Install
-First things first, install [Bash-Preexec](https://github.com/rcaloras/bash-preexec).
+First things first, set up [bash-preexec](https://github.com/rcaloras/bash-preexec).
 
-Then pull down the script and add it to your bash profile/configuration (i.e
-~/.bashrc, ~/.profile, ~/.bash_profile, etc). **It must be imported before
-Bash-Preexec in your bash profile.**
+Then download `bash-tiasft.sh` and source it in your `.bashrc` **before
+bash-preexec**.
 
 ### Step by step
-Pull down Bash-Tiasft and place it in your home directory
+Download `bash-tiasft.sh` and place it in your home directory:
 ```bash
 curl https://raw.githubusercontent.com/glumia/bash-tiasft/master/bash-tiasft.sh -o ~/.bash-tiasft.sh
 ```
 
-Now add the following line in your our bash profile (e.g. ~/.bashrc,
-~/.profile, or ~/.bash_profile).
-```
-[[ -f ~/.bash-tiasft.sh ]] && source ~/.bash-tiasft.sh
-```
+Now add `[[ -r ~/.bash-tiasft.sh ]] && source ~/.bash-tiasft.sh` in your `.bashrc`.
 
-This is how the end of your bash profile should look like:
-```
-$ tail -n7 .bashrc
+This is how it should look like:
+```bash
 # Activate Bash-Tiasft
-[[ -f ~/.bash-tiasft.sh ]] && source ~/.bash-tiasft.sh
+[[ -r ~/.bash-tiasft.sh ]] && source ~/.bash-tiasft.sh
 
 # Activate Bash-Preexec (https://github.com/rcaloras/bash-preexec)
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-
+[[ -r ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 ```
 
 ## Usage
@@ -49,8 +39,8 @@ alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
 ```
 
-Now just give your commands as usual, if you forget you have a shortcut for
-a command bash-tiasft will suggest it to you for the next time:
+Now use the command line as usual. If you type a command that could have been
+abbreviated with an alias, bash-tiasft will suggest it for the next time:
 ```
 $ git commit --amend --no-edit
 There is a shortcut for that!
@@ -70,22 +60,19 @@ $ gcan
 ```
 
 ## Tests
-You can run tests using [Bats](https://github.com/bats-core/bats-core).
-```bash
-bats test
+You can run tests with [bats](https://github.com/bats-core/bats-core).
 ```
-Should output something like:
-```
-$ bats test/
+~/bash-tiasft$ bats test/
  ✓ should match a shortcut
  ✓ should match the most powerful shortcut
  ✓ should not import if it's already defined
  ✓ should import if not defined
 
 4 tests, 0 failures
+
 ```
 
 
 ## Acknowledgments
-Thanks to the people behind [Bash-Preexec](https://github.com/rcaloras/bash-preexec)
-for their wonderful utility!
+- Thanks to the people of [bash-preexec](https://github.com/rcaloras/bash-preexec) for
+  this utility!
